@@ -4,14 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://2kyqonjtt55u" path="res://Assets/Rayo.png" id="1_rieng"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l5edr"]
-radius = 0.892857
-height = 12.0
+radius = 1.5625
+height = 21.7073
 
 [node name="Laser" type="CharacterBody2D"]
 script = ExtResource("1_e0smp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.09, 0.09)
 texture = ExtResource("1_rieng")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
