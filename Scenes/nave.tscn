@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://nave.gd" id="1_aknpk"]
 [ext_resource type="Texture2D" uid="uid://dxfpsi33r8haj" path="res://Assets/Nave.png" id="2_05l1x"]
 
-[node name="Nave" type="CharacterBody2D"]
+[node name="Nave" type="CharacterBody2D" groups=["nave"]]
 script = ExtResource("1_aknpk")
 metadata/_edit_group_ = true
 
@@ -18,3 +18,5 @@ texture = ExtResource("2_05l1x")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

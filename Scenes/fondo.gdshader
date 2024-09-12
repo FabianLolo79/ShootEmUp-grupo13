@@ -1,12 +1,10 @@
 shader_type canvas_item;
 
-uniform float scroll_speed = 1; //investigar
+uniform float scroll_speed; //investigar
 
 void fragment() {
 	vec2 shifteduv = UV;
-	shifteduv.y -=  scroll_speed; // TIME *
+	shifteduv.y -= TIME * scroll_speed;
 	vec4 color = texture(TEXTURE, shifteduv);
 	COLOR = color;
 }
-
-

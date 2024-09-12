@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc0x7nrsq370s"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_gw8w0"]
+[ext_resource type="Texture2D" uid="uid://cnat6txgpyenu" path="res://Assets/Enemy/Roca.png" id="2_5j8id"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qvixq"]
+radius = 63.0079
+
+[node name="Roca" type="RigidBody2D"]
+gravity_scale = 0.1
+script = ExtResource("1_gw8w0")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_5j8id")
+
+[node name="Area2D" type="Area2D" parent="." groups=["roca"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-4, 3)
+shape = SubResource("CircleShape2D_qvixq")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

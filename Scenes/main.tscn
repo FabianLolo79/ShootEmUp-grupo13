@@ -1,14 +1,55 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfjty207mqtq0"]
+[gd_scene load_steps=11 format=3 uid="uid://bfjty207mqtq0"]
 
 [ext_resource type="PackedScene" uid="uid://bp30pxuolvfyg" path="res://Scenes/nave.tscn" id="1_xn82l"]
 [ext_resource type="PackedScene" uid="uid://cs2fcfj0k61gh" path="res://Scenes/fondo.tscn" id="2_s3e0g"]
 [ext_resource type="AudioStream" uid="uid://b4sbbwiksqb7e" path="res://Assets/Airwolf_Theme.mp3" id="3_jjubg"]
+[ext_resource type="Script" path="res://Scenes/spawn_1.gd" id="4_apksh"]
+[ext_resource type="PackedScene" uid="uid://cc0x7nrsq370s" path="res://Scenes/roca.tscn" id="5_yo652"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31f2q"]
 size = Vector2(20, 668.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rgq13"]
 size = Vector2(20, 666.5)
+
+[sub_resource type="Animation" id="Animation_6q5da"]
+resource_name = "Move"
+length = 8.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.1, 4, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -32), Vector2(287, -32), Vector2(574, -32), Vector2(861, -32), Vector2(1148, -32)]
+}
+
+[sub_resource type="Animation" id="Animation_shcyy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -32)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xenfr"]
+_data = {
+"Move": SubResource("Animation_6q5da"),
+"RESET": SubResource("Animation_shcyy")
+}
 
 [node name="Main" type="Node2D"]
 
@@ -33,3 +74,16 @@ position = Vector2(380, 603)
 stream = ExtResource("3_jjubg")
 autoplay = true
 parameters/looping = true
+
+[node name="Spawn_1" type="Marker2D" parent="."]
+position = Vector2(0, -32)
+rotation = 6.28319
+script = ExtResource("4_apksh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Spawn_1"]
+libraries = {
+"": SubResource("AnimationLibrary_xenfr")
+}
+autoplay = "Move"
+
+[node name="Roca" parent="." instance=ExtResource("5_yo652")]
