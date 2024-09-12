@@ -13,7 +13,7 @@ texture = ExtResource("2_05l1x")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["nave"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 
