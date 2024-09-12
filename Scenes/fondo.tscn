@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cs2fcfj0k61gh"]
+
+[ext_resource type="Shader" path="res://Scenes/fondo.gdshader" id="1_504y1"]
+[ext_resource type="Texture2D" uid="uid://sbjllirvqc47" path="res://Assets/Background/Nebula Blue.png" id="2_1bjj5"]
+[ext_resource type="Texture2D" uid="uid://c1i3nl1f2w84l" path="res://Assets/Background/Stars Small_1.png" id="3_5lkmc"]
+[ext_resource type="Texture2D" uid="uid://doou7rhp630xj" path="res://Assets/Background/Stars-Big_1.png" id="4_fr1y7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h5m3x"]
+shader = ExtResource("1_504y1")
+shader_parameter/scroll_speed = 0.1
+
+[node name="Fondo" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+position = Vector2(195, 85)
+motion_mirroring = Vector2(700, 400)
+
+[node name="Background" type="Sprite2D" parent="ParallaxLayer"]
+texture_repeat = 2
+position = Vector2(936, 284)
+texture = ExtResource("2_1bjj5")
+
+[node name="smallStar" type="Sprite2D" parent="ParallaxLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_h5m3x")
+texture = ExtResource("3_5lkmc")
+
+[node name="BigStar" type="Sprite2D" parent="ParallaxLayer"]
+visible = false
+texture = ExtResource("4_fr1y7")
