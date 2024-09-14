@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bp30pxuolvfyg" path="res://Scenes/nave.tscn" id="1_xn82l"]
 [ext_resource type="PackedScene" uid="uid://cs2fcfj0k61gh" path="res://Scenes/fondo.tscn" id="2_s3e0g"]
-[ext_resource type="AudioStream" uid="uid://bua6orvipfaa1" path="res://Assets/Music & Sfx/Gameplay Loop.ogg" id="3_b3xng"]
+[ext_resource type="AudioStream" path="res://Assets/Music/Gameplay Loop.ogg" id="3_v2214"]
 [ext_resource type="Script" path="res://Scenes/spawn_1.gd" id="4_apksh"]
 [ext_resource type="PackedScene" uid="uid://cc0x7nrsq370s" path="res://Scenes/roca.tscn" id="5_yo652"]
 
@@ -71,8 +71,9 @@ shape = SubResource("RectangleShape2D_rgq13")
 [node name="Fondo" parent="." instance=ExtResource("2_s3e0g")]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_b3xng")
+stream = ExtResource("3_v2214")
 autoplay = true
+parameters/looping = true
 
 [node name="Spawn_1" type="Marker2D" parent="."]
 position = Vector2(50, -75)

@@ -9,7 +9,7 @@ func _physics_process(delta: float) -> void:
 		get_parent().add_child(roca)
 		roca.global_position = global_position
 		cae = false
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(1).timeout
 		cae = true
 		pass
 	pass

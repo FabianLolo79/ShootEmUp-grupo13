@@ -17,7 +17,7 @@ func Move():
 	if direction:
 		velocity.x = direction * SPEED
 	else: 
-		velocity.y = 0
+		velocity.x = 0
 	move_and_slide()	
 	pass
 	
@@ -31,10 +31,10 @@ func Shoot():
 		await get_tree().create_timer(0.5).timeout
 		shooting = true
 		pass
-		
+	pass	
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.is_in_group("roca"):
+	if area.is_in_group("Roca"):
 		queue_free()	
 	pass 

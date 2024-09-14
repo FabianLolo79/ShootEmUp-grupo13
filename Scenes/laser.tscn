@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/laser.gd" id="1_e0smp"]
 [ext_resource type="Texture2D" uid="uid://2kyqonjtt55u" path="res://Assets/Rayo.png" id="1_rieng"]
-[ext_resource type="AudioStream" uid="uid://n7raj58y7ttk" path="res://Assets/Laser.ogg" id="3_wbvka"]
+[ext_resource type="AudioStream" uid="uid://bkusrskxxnvsj" path="res://Assets/Music & Sfx/sfx_laser2.wav" id="3_263sp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l5edr"]
 radius = 1.5625
@@ -17,14 +17,14 @@ texture = ExtResource("1_rieng")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
-[node name="Area2D" type="Area2D" parent="." groups=["laser"]]
+[node name="Area2D" type="Area2D" parent="." groups=["Laser"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(1.28, -1.10562)
 shape = SubResource("CapsuleShape2D_l5edr")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_wbvka")
+stream = ExtResource("3_263sp")
 autoplay = true
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

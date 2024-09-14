@@ -1,14 +1,68 @@
 [gd_scene load_steps=9 format=3 uid="uid://cc0x7nrsq370s"]
 
-[ext_resource type="Script" path="res://enemy.gd" id="1_gw8w0"]
+[ext_resource type="Script" path="res://Scenes/roca.gd" id="1_tge12"]
 [ext_resource type="Texture2D" uid="uid://cnat6txgpyenu" path="res://Assets/Enemy/Roca.png" id="2_5j8id"]
 [ext_resource type="Texture2D" uid="uid://dntia8bi0spj3" path="res://Assets/Explosion.png" id="3_15hp5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qvixq"]
 radius = 63.0079
 
+[sub_resource type="Animation" id="Animation_4vlxx"]
+resource_name = "Explotion"
+length = 1.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_5j8id"), ExtResource("3_15hp5")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 10]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/CollisionShape2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+}
+
 [sub_resource type="Animation" id="Animation_iq88r"]
 resource_name = "Idle"
+length = 1.1
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -29,51 +83,10 @@ tracks/1/path = NodePath("Sprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.261799, 0.523599, 0.785398, 1.0472, 1.309, 1.5708, 1.8326, 2.0944, 2.35619, 2.61799]
-}
-
-[sub_resource type="Animation" id="Animation_4vlxx"]
-resource_name = "Explotion"
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:hframes")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_15hp5")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+"values": [0.0, 0.261799, 0.523599, 0.785398, 1.0472, 1.309, 1.5708, 1.8326, 2.0944, 2.35619, 2.61799, 2.87979]
 }
 
 [sub_resource type="Animation" id="Animation_cejm1"]
@@ -112,7 +125,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [10]
+"values": [1]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -124,7 +137,19 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [8]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Area2D/CollisionShape2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kcs26"]
@@ -135,15 +160,15 @@ _data = {
 }
 
 [node name="Roca" type="RigidBody2D"]
-gravity_scale = 0.1
-script = ExtResource("1_gw8w0")
+mass = 10000.0
+gravity_scale = 0.05
+script = ExtResource("1_tge12")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_5j8id")
-hframes = 10
 
-[node name="Area2D" type="Area2D" parent="." groups=["roca"]]
+[node name="Area2D" type="Area2D" parent="." groups=["Roca"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 visible = false
@@ -151,7 +176,6 @@ position = Vector2(-4, 3)
 shape = SubResource("CircleShape2D_qvixq")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
