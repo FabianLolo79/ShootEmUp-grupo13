@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bfjty207mqtq0"]
+[gd_scene load_steps=15 format=3 uid="uid://bfjty207mqtq0"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_3mtpr"]
 [ext_resource type="PackedScene" uid="uid://bp30pxuolvfyg" path="res://Scenes/nave.tscn" id="1_xn82l"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scenes/spawn_1.gd" id="4_apksh"]
 [ext_resource type="Script" path="res://Scenes/node_timer.gd" id="6_pr7jx"]
 [ext_resource type="PackedScene" uid="uid://b6i17rysakot8" path="res://Scenes/level_2.tscn" id="7_dogf2"]
+[ext_resource type="FontFile" uid="uid://78a7gqy5fvuy" path="res://Assets/BubbleBobble.ttf" id="7_gr1fl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31f2q"]
 size = Vector2(20, 668.5)
@@ -52,6 +53,10 @@ _data = {
 "Move": SubResource("Animation_6q5da"),
 "RESET": SubResource("Animation_shcyy")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_ayw5f"]
+font = ExtResource("7_gr1fl")
+font_size = 35
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_3mtpr")
@@ -102,6 +107,7 @@ grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 35
 text = "00:00"
+label_settings = SubResource("LabelSettings_ayw5f")
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="NodeTimer"]
