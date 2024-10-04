@@ -42,6 +42,10 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		Global.lives -= 1
 		$AnimationPlayer.play("lives")
 		
+	if area.is_in_group("powerUpLife"): #and Global.lives < 3
+		_on_collect_power_up()
+		pass
+		
 	if Global.lives == 0:
 		$AnimationPlayer.play("Explotion")
 		$Area2D/CollisionPolygon2D.disabled
@@ -52,7 +56,19 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	pass 
 	
 
-
 func _on_power_up_collected(power_up_type: String):
 	if power_up_type == "laser_2":
 		current_laser = pre_laser_2  # Cambia al segundo tipo de láser
+	pass	
+		
+#Función de recoger vida
+func _on_collect_power_up():
+	# Cargar la escena 'lives.tscn'
+	var lives_scene = load("res://Scenes/lives.tscn") as PackedScene
+	
+	# Instanciar la escena
+	var node_lives = lives_scene.instantiate()
+	
+	# llama a la función incrementar vida del nodo lives
+	node_lives.increase_lives()
+	pass
